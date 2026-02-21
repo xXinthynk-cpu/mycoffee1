@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INVESTOR STORE</title>
+<title>Investor Store | Futuristic Commerce</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
@@ -13,12 +13,23 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#0f0f1a;
+background:#0b0b17;
 color:white;
 overflow-x:hidden;
+}
+
+/* PARTICLE BACKGROUND */
+#particles{
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle at 20% 20%, #ff00c8 0%, transparent 40%),
+radial-gradient(circle at 80% 70%, #00f0ff 0%, transparent 40%);
+z-index:-2;
 }
 
 /* NAVBAR */
@@ -29,15 +40,18 @@ align-items:center;
 padding:20px 8%;
 position:fixed;
 width:100%;
-background:rgba(0,0,0,0.3);
-backdrop-filter:blur(15px);
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
 z-index:999;
+border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 nav h1{
 font-weight:900;
 letter-spacing:3px;
-color:#00f0ff;
+background:linear-gradient(90deg,#00f0ff,#ff00c8);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 nav a{
@@ -59,15 +73,22 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 text-align:center;
-background:linear-gradient(135deg,#0f0f1a,#141430,#0f0f1a);
+padding:0 20px;
 }
 
 .hero h2{
-font-size:60px;
+font-size:70px;
 font-weight:900;
-background:linear-gradient(90deg,#00f0ff,#ff00c8);
+background:linear-gradient(90deg,#00f0ff,#ff00c8,#00f0ff);
+background-size:300%;
 -webkit-background-clip:text;
 color:transparent;
+animation:glowText 6s infinite linear;
+}
+
+@keyframes glowText{
+0%{background-position:0%;}
+100%{background-position:300%;}
 }
 
 .hero p{
@@ -77,54 +98,61 @@ opacity:.8;
 }
 
 .hero button{
-margin-top:30px;
-padding:15px 40px;
+margin-top:40px;
+padding:15px 50px;
 border:none;
 background:linear-gradient(90deg,#00f0ff,#ff00c8);
 color:white;
 border-radius:50px;
 cursor:pointer;
-transition:.3s;
+transition:.4s;
+box-shadow:0 0 20px #00f0ff;
 }
 
 .hero button:hover{
 transform:scale(1.1);
+box-shadow:0 0 40px #ff00c8;
 }
 
 /* SECTION */
 section{
-padding:100px 8%;
+padding:120px 8%;
 text-align:center;
 }
 
 .section-title{
 font-size:40px;
-margin-bottom:50px;
+margin-bottom:60px;
+background:linear-gradient(90deg,#00f0ff,#ff00c8);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:40px;
 }
 
 .card{
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-padding:30px;
+backdrop-filter:blur(15px);
+padding:40px;
 border-radius:20px;
-transition:.3s;
+transition:.4s;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover{
-transform:translateY(-10px);
-background:rgba(255,255,255,0.1);
+transform:translateY(-15px);
+box-shadow:0 0 30px rgba(0,240,255,0.4);
 }
 
+/* FOOTER */
 footer{
 padding:40px;
 text-align:center;
-background:#0a0a14;
+background:#080814;
 opacity:.7;
 }
 
@@ -139,6 +167,8 @@ font-size:35px;
 
 <body>
 
+<div id="particles"></div>
+
 <nav>
 <h1>INVESTOR</h1>
 <div>
@@ -150,54 +180,51 @@ font-size:35px;
 </nav>
 
 <div class="hero">
-<h2>Future Of Fashion Commerce</h2>
-<p>Platform modern untuk brand visionary. Dibangun dengan sistem scalable dan siap menuju level investor.</p>
-<button>Explore Now</button>
+<h2>Cyber Commerce Revolution</h2>
+<p>Future-ready fashion platform built for scalability, investor confidence, and digital dominance.</p>
+<button>Enter The Future</button>
 </div>
 
 <section>
-<h3 class="section-title">Why Choose Us</h3>
+<h3 class="section-title">Why We Dominate</h3>
 <div class="cards">
 <div class="card">
 <h4>Premium Quality</h4>
-<p>Material terbaik dengan standar brand internasional.</p>
+<p>Luxury craftsmanship meets futuristic branding.</p>
 </div>
-
 <div class="card">
-<h4>Modern System</h4>
-<p>Built with scalable architecture & secure database.</p>
+<h4>Smart System</h4>
+<p>Secure, scalable, database powered architecture.</p>
 </div>
-
 <div class="card">
-<h4>Investor Ready</h4>
-<p>Brand vision yang kuat dan roadmap jelas.</p>
+<h4>Investor Vision</h4>
+<p>Built for expansion, franchise & global scale.</p>
 </div>
 </div>
 </section>
 
 <section>
-<h3 class="section-title">Featured Products</h3>
+<h3 class="section-title">Elite Collections</h3>
 <div class="cards">
 <div class="card">
-<h4>Gamis Elite Series</h4>
-<p>Elegant. Powerful. Confident.</p>
+<h4>Gamis Quantum</h4>
+<p>Elegance engineered for modern power.</p>
 </div>
-
 <div class="card">
-<h4>Couple Premium</h4>
-<p>Luxury modern concept.</p>
+<h4>Couple Nova</h4>
+<p>Luxury synergy in every detail.</p>
 </div>
-
 <div class="card">
-<h4>Limited Edition</h4>
-<p>Exclusive drop collection.</p>
+<h4>Limited Infinity</h4>
+<p>Exclusive drop. No mass production.</p>
 </div>
 </div>
 </section>
 
 <footer>
-© 2026 Investor Store — All Rights Reserved
+© 2026 Investor Store — Cyberpunk Edition
 </footer>
 
 </body>
 </html>
+z
