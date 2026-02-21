@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Investor Store | Futuristic Commerce</title>
+<title>Investor Store | Galaxy Era</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
@@ -14,22 +14,44 @@ padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
+cursor:none;
 }
 
 body{
-background:#0b0b17;
+background:#000;
 color:white;
 overflow-x:hidden;
 }
 
-/* PARTICLE BACKGROUND */
-#particles{
+/* GALAXY ANIMATION BACKGROUND */
+body::before{
+content:"";
 position:fixed;
-width:100%;
-height:100%;
-background:radial-gradient(circle at 20% 20%, #ff00c8 0%, transparent 40%),
-radial-gradient(circle at 80% 70%, #00f0ff 0%, transparent 40%);
+width:200%;
+height:200%;
+background:radial-gradient(circle at 30% 30%, #ff00c8 0%, transparent 40%),
+radial-gradient(circle at 70% 60%, #00f0ff 0%, transparent 40%),
+radial-gradient(circle at 50% 80%, #6600ff 0%, transparent 40%);
+animation:moveGalaxy 20s linear infinite;
 z-index:-2;
+}
+
+@keyframes moveGalaxy{
+0%{transform:translate(0,0);}
+50%{transform:translate(-10%, -10%);}
+100%{transform:translate(0,0);}
+}
+
+/* GLOW CURSOR */
+.cursor{
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+background:radial-gradient(circle,#00f0ff,#ff00c8);
+pointer-events:none;
+mix-blend-mode:screen;
+z-index:9999;
 }
 
 /* NAVBAR */
@@ -43,12 +65,10 @@ width:100%;
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(20px);
 z-index:999;
-border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 nav h1{
 font-weight:900;
-letter-spacing:3px;
 background:linear-gradient(90deg,#00f0ff,#ff00c8);
 -webkit-background-clip:text;
 color:transparent;
@@ -77,97 +97,89 @@ padding:0 20px;
 }
 
 .hero h2{
-font-size:70px;
+font-size:80px;
 font-weight:900;
-background:linear-gradient(90deg,#00f0ff,#ff00c8,#00f0ff);
+background:linear-gradient(90deg,#00f0ff,#ff00c8,#6600ff);
 background-size:300%;
 -webkit-background-clip:text;
 color:transparent;
-animation:glowText 6s infinite linear;
+animation:textFlow 8s infinite linear;
 }
 
-@keyframes glowText{
-0%{background-position:0%;}
-100%{background-position:300%;}
+@keyframes textFlow{
+0%{background-position:0%}
+100%{background-position:300%}
 }
 
 .hero p{
 margin-top:20px;
-max-width:600px;
 opacity:.8;
 }
 
 .hero button{
 margin-top:40px;
-padding:15px 50px;
+padding:15px 60px;
 border:none;
+border-radius:50px;
 background:linear-gradient(90deg,#00f0ff,#ff00c8);
 color:white;
-border-radius:50px;
 cursor:pointer;
 transition:.4s;
-box-shadow:0 0 20px #00f0ff;
+box-shadow:0 0 30px #00f0ff;
 }
 
 .hero button:hover{
 transform:scale(1.1);
-box-shadow:0 0 40px #ff00c8;
+box-shadow:0 0 60px #ff00c8;
 }
 
 /* SECTION */
 section{
 padding:120px 8%;
 text-align:center;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
 }
 
-.section-title{
-font-size:40px;
-margin-bottom:60px;
-background:linear-gradient(90deg,#00f0ff,#ff00c8);
--webkit-background-clip:text;
-color:transparent;
+section.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
+margin-top:50px;
 }
 
 .card{
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(15px);
+backdrop-filter:blur(20px);
 padding:40px;
 border-radius:20px;
-transition:.4s;
+transition:.5s;
 border:1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover{
-transform:translateY(-15px);
-box-shadow:0 0 30px rgba(0,240,255,0.4);
-}
-
-/* FOOTER */
-footer{
-padding:40px;
-text-align:center;
-background:#080814;
-opacity:.7;
+transform:translateY(-15px) scale(1.05);
+box-shadow:0 0 40px #00f0ff;
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-.hero h2{
-font-size:35px;
-}
+.hero h2{font-size:35px;}
+*{cursor:auto;}
+.cursor{display:none;}
 }
 </style>
 </head>
 
 <body>
 
-<div id="particles"></div>
+<div class="cursor" id="cursor"></div>
 
 <nav>
 <h1>INVESTOR</h1>
@@ -180,51 +192,40 @@ font-size:35px;
 </nav>
 
 <div class="hero">
-<h2>Cyber Commerce Revolution</h2>
-<p>Future-ready fashion platform built for scalability, investor confidence, and digital dominance.</p>
-<button>Enter The Future</button>
+<h2>Galaxy Commerce Era</h2>
+<p>Beyond startup. Beyond scale. Enter the universe of premium digital fashion.</p>
+<button>Launch Platform</button>
 </div>
 
 <section>
-<h3 class="section-title">Why We Dominate</h3>
+<h2>Elite Collections</h2>
 <div class="cards">
-<div class="card">
-<h4>Premium Quality</h4>
-<p>Luxury craftsmanship meets futuristic branding.</p>
-</div>
-<div class="card">
-<h4>Smart System</h4>
-<p>Secure, scalable, database powered architecture.</p>
-</div>
-<div class="card">
-<h4>Investor Vision</h4>
-<p>Built for expansion, franchise & global scale.</p>
-</div>
+<div class="card"><h3>Quantum Series</h3></div>
+<div class="card"><h3>Nova Collection</h3></div>
+<div class="card"><h3>Infinity Drop</h3></div>
 </div>
 </section>
 
-<section>
-<h3 class="section-title">Elite Collections</h3>
-<div class="cards">
-<div class="card">
-<h4>Gamis Quantum</h4>
-<p>Elegance engineered for modern power.</p>
-</div>
-<div class="card">
-<h4>Couple Nova</h4>
-<p>Luxury synergy in every detail.</p>
-</div>
-<div class="card">
-<h4>Limited Infinity</h4>
-<p>Exclusive drop. No mass production.</p>
-</div>
-</div>
-</section>
+<script>
+/* GLOW CURSOR */
+const cursor=document.getElementById("cursor");
+document.addEventListener("mousemove",(e)=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
 
-<footer>
-© 2026 Investor Store — Cyberpunk Edition
-</footer>
+/* SCROLL REVEAL */
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+let top=window.scrollY;
+let offset=sec.offsetTop-500;
+if(top>offset){
+sec.classList.add("show");
+}
+});
+});
+</script>
 
 </body>
 </html>
-z
